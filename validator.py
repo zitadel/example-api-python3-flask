@@ -50,6 +50,11 @@ class ZitadelIntrospectTokenValidator(IntrospectTokenValidator):
         now = int( time.time() )
         if not token:
             raise ValidatorError({
+                "code": "invalid_token", 
+                "description": "Invalid Token." }, 401)
+        """Revoked"""
+        if not token["active"]: 
+            raise ValidatorError({
                 "code": "invalid_token_revoked", 
                 "description": "Token was revoked." }, 401)
         """Expired"""
@@ -57,9 +62,6 @@ class ZitadelIntrospectTokenValidator(IntrospectTokenValidator):
             raise ValidatorError({
                 "code": "invalid_token_expired", 
                 "description": "Token has expired." }, 401)
-        """Revoked"""
-        if not token["active"]: 
-            raise InvalidTokenError()
         """Insufficient Scope"""
         if not self.match_token_scopes(token, scopes):
             raise ValidatorError({
