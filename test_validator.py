@@ -1,5 +1,15 @@
 import unittest
 from validator import ZitadelIntrospectTokenValidator as v
+from validator import ValidatorError
+
+class TestValidatorToken(unittest.TestCase):
+    def test_invalid_token(self):
+        token = {'active': False}
+        scopes = None
+        request = None
+        with self.assertRaises(ValidatorError) as error: 
+            v.validate_token(None, token, scopes, request)
+        self.assertEqual("{'code': 'invalid_token', 'description': 'Invalid token (active: false)'}", str(error.exception.error))
 
 class TestValidatorMatchTokenScopes(unittest.TestCase):
 

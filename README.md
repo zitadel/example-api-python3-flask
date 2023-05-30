@@ -64,6 +64,8 @@ Set the values with the Instance Domain, Client ID, and Client Secret from the p
 2. Start the server with `python3 server.py`
 3. Open another terminal and follow the next step to test the API
 
+You can optionally create a virtual environment before installing the dependencies by running `python3 -m venv venv`
+
 ## Testing the API
 
 ### Public route
