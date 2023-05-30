@@ -55,8 +55,8 @@ class ZitadelIntrospectTokenValidator(IntrospectTokenValidator):
         """Revoked"""
         if not token["active"]: 
             raise ValidatorError({
-                "code": "invalid_token_revoked", 
-                "description": "Token was revoked." }, 401)
+                "code": "invalid_token", 
+                "description": "Invalid token (active: false)" }, 401)
         """Expired"""
         if token["exp"] < now: 
             raise ValidatorError({
