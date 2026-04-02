@@ -1,3 +1,7 @@
+> [\!WARNING]
+> This repository is archived and no longer maintained.
+> For the latest version and active development, please refer to [zitadel/example-auth-flask](https://github.com/zitadel/example-auth-flask).
+
 # Example: Python3 Flask API Authentication and Authorization
 
 This example shows you how to create a Python3 API using Flask.
